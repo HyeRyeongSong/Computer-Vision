@@ -1,4 +1,50 @@
-﻿================================================================================
+# 중간고사 대체 프로젝트
+컴퓨터비전 응용개발
+## 내용
+- 인식 대상 선정, 표본자료 수집
+- 구현 기능
+	1. 명암영상 생성 (Gray Scale Image)
+	2. 이진화 (Segmented Image usign Otsu Algorithm)
+	3. 형태학적 연산 (Morphological Filtering)
+	4. 레이블링 (Labeling)
+	5. 특징추출 (Feature Extraction - Contour Tracing)
+	6. 매칭 (Matching)
+## 제출물
+- 프로그램 코드
+- 설명서(10쪽)
+	- 설명서에 포함되어야 하는 사항
+		- 대상 선정 개요
+		- 학습과 인식 자료 구분
+		- 기능 설명
+		- 인식율
+## 전체 UI 및 작동방법
+![image](https://user-images.githubusercontent.com/19266698/120075057-b363d580-c0da-11eb-8a4c-3e174bfb932d.png)
+
+몇 개의 버튼들은 다음의 순서대로 눌려야함
+1. train -> Matching
+2. Gray Scale -> Otsu -> Morphology-Opening or Morphology-Closing -> Labeling
+
+- **Load**
+	- 이미지를 불러와서 화면에 보여주는 역할을 해주며 전역변수인 img에 불러온 data를 저장하여 이후의 버튼들을 눌렀을 때 연산이 적용될 수 있게 해줌
+- **Save**
+	- 지금까지의 연산이 적용된 이미지를 copy.jpg에 저장해줌
+- **train**
+	- ".\\train"의 데이터들을 가지고 패턴 추출 및 학습 진행 (시간이 많이 소요됨)
+- **Matching**
+	- 학습이 이루어진 이후 눌려야 작동하며 이미지를 불러와서 Gray Scale, Otsu, Morphology, Labeling, 이미지 특징추출의 전처리 작업을 해준 후 학습된 dataset들과의 비교를 통해 어느 class에 속하는지 메시지 박스로 출력
+- **Gray Scale**
+	- Gray Scale 이미지를 화면에 출력 후 img에 저장
+- **Otsu**
+	- 이진화 이미지를 화면에 출력 후 img에 저장
+- **Morphology-Opening**
+	- opening 연산이 된 이미지를 화면에 출력 후 img에 저장
+- **Morphology-Closing**
+	- closing 연산이 된 이미지를 화면에 출력 후 img에 저장
+- **Labeling**
+	- Contour Tracing 연산이 된 이미지를 화면에 출력 후 img에 저장
+
+
+===============================================================================
     MFC 라이브러리 : RGB 프로젝트 개요
 ===============================================================================
 
